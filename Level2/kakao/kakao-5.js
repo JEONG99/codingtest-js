@@ -1,3 +1,5 @@
+//2022 KAKAO BLIND RECRUITMENT - 양궁대회
+
 const info = [2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0];
 const n = 5;
 
