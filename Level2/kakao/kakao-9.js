@@ -1,3 +1,5 @@
+//2018 KAKAO BLIND RECRUITMENT - 프렌즈4블록
+
 const board = ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"];
 const m = 6;
 const n = 6;
