@@ -36,4 +36,6 @@ function solution(cacheSize, cities) {
   return time;
 }
 
-console.log(solution(cacheSize, cities));
+const a = [1, 3, 2];
+const b = a.sort();
+console.log(a);
