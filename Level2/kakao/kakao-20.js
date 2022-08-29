@@ -7,30 +7,28 @@ const queue1 = [1, 2, 7, 2];
 const queue2 = [4, 6, 5, 1];
 
 function solution(queue1, queue2) {
-  let sum1 = queue1.reduce((a, v) => a + v, 0);
-  let sum2 = queue2.reduce((a, v) => a + v, 0);
+  const queue = [...queue1, ...queue2];
+  const targetSum = queue.reduce((a, v) => a + v) / 2;
+  if (!Number.isInteger(targetSum)) return -1;
+  let len = queue1.length;
   let count = 0;
-  const len = queue1.length;
-  if ((sum1 + sum2) % 2 !== 0) return -1;
+  let start = 0;
+  let end = len;
+  let queue1Sum = queue.slice(start, end).reduce((a, v) => a + v);
 
-  while (true) {
-    if (count > (len - 1) * 3) return -1;
-    if (sum1 > sum2) {
-      const num = queue1.shift();
-      queue2.push(num);
-      sum1 -= num;
-      sum2 += num;
-      count++;
-    } else if (sum1 < sum2) {
-      const num = queue2.shift();
-      queue1.push(num);
-      sum1 += num;
-      sum2 -= num;
-      count++;
-    } else {
+  while (count <= (len - 1) * 3) {
+    if (queue1Sum > targetSum) {
+      queue1Sum -= queue[start];
+      start++;
+    } else if (queue1Sum < targetSum) {
+      queue1Sum += queue[end];
+      end++;
+    } else if (queue1Sum === targetSum) {
       return count;
     }
+    count++;
   }
+  return -1;
 }
 
 console.log(solution(queue1, queue2));
