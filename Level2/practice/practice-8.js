@@ -1,7 +1,6 @@
 //연습문제 - 택배상자
 
 const order = [4, 3, 1, 2, 5];
-
 function solution(order) {
   const stackMain = [];
   const stackSub = [];
